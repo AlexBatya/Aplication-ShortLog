@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./views/css/index.css">
+    <title>Video</title>
+</head>
+<body>
+    
+    <header>
+        <div class="header__body">
+            <div class="header__body__container container">
+                <img src="./views/img/icon.gif" alt="">
+                <div class = 'logo'>ShortLog</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main__body">
+            <div class="main__body__container container">
+                <h1>Добро пожаловать в мини редактор нарезки видео</h1>
+                <form action="" method="POST">
+                    <input class = 'video' required name = 'video' type="file">
+                    <input required name = 'parts' class = 'parts input' placeholder="Колличество разбиений" type="text">
+                    <input required name = 'shortTime'  class = 'shortTime input' placeholder="Время одного кадра в секундах" type="text">
+                    <button class = 'btm'>Отправить</button>
+                    
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const {ipcRenderer} = require('electron');  
+        const form = document.querySelector('form')
+        form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            const data = {
+                video: document.querySelector('.video').value,
+                parts: document.querySelector('.parts').value,
+                shortTime: document.querySelector('.shortTime').value 
+            }
+            ipcRenderer.send('item:add', data);
+            form.insertAdjacentHTML('beforeend', `<img class = 'loding' src = './views/img/loding.gif' /></div>`)
+        })
+        ipcRenderer.on('item:new', (e, item) => {
+            form.insertAdjacentHTML('beforeend', `<div>Файл успешно скачен и помещён в папку media</div>`)
+            const loding = form.querySelector('img.loding')
+            loding.remove();
+            // form.insertAdjacentHTML('beforeend', `<video autoplay muted src="${item}"></video>`)
+        })
+    </script>
+    <!-- <script>require('./render.js')</script> -->
+</body>
+</html>

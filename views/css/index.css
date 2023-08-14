@@ -1,0 +1,102 @@
+body, h1, h2, h3, h4, h5{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Poiret One';
+    font-weight: 900;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 15px
+}
+
+header{
+    width: 100%vw;
+    height: 75px;
+    background-color: rgb(253,237,155);
+}
+
+header .header__body{
+    width: 100%;
+    height: 100%;
+}
+
+header .header__body .header__body__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header__body .header__body__container img{
+    width: 100px;
+    height: 75px;
+}
+header .header__body .header__body__container .logo{
+    font-size: 24px;
+}
+
+main{
+
+}
+
+main .main__body{
+    background-color: white;
+}
+
+main .main__body .main__body__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 15px 0;
+}
+main .main__body .main__body__container form{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #8272AE;
+    box-shadow: 0 0 10px #8272AE; */
+    border-radius: 20px;
+    align-items: center;
+    gap: 20px;
+}
+
+.loding{
+    text-align: center;
+}
+
+main .main__body .main__body__container form .btm{
+    transition: 0.5s;
+    cursor: pointer;
+    font-family: 'Poiret One';
+    font-weight: 900;
+    border: none;
+    padding: 10px 20px;
+    background-color: rgb(253,237,155);
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.6); 
+}
+main .main__body .main__body__container form .btm:hover{
+    background-color: #8272AE;
+    color: white;
+}
+
+main .main__body .main__body__container h1{
+    font-size: 24px;
+    text-align: center;
+}
+
+main .main__body .main__body__container form .input{
+    width: 70%;
+    font-family: 'Poiret One';
+    font-weight: 900;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(253,237,155);
+    /* background-color: rgba(0, 0, 0, 0.1); */
+}

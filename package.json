@@ -1,0 +1,22 @@
+{
+  "name": "videocut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
+    "colors": "^1.4.0",
+    "ejs": "^3.1.9",
+    "ejs-electron": "^2.1.1",
+    "electron": "^25.5.0",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0"
+  }
+}
