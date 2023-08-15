@@ -4,18 +4,9 @@ const url = require('url');
 const {app, BrowserWindow, ipcMain} = require('electron');
 const ejse = require('ejs-electron')
 const express = require('express');
-// const bodyParser = require('body-parser');
 const color = require('colors');
-// const fileUpload = require('express-fileupload');
 const axios = require('axios');
 
-
-const PORT = 3000;
-const app1 = express();
-
-// app1.use(bodyParser.urlencoded({ extended: true}))
-// app1.use(bodyParser.json({ limit: '900mb' }))
-// app1.use(fileUpload())
 
 const urlAll = 'http://localhost:3001'
 const token = JSON.parse(fs.readFileSync('./keys.json')).key_token
@@ -34,9 +25,10 @@ const axiosConfigPOST = (elem, url) => {
 
 const settingsAxios = (data) => {
     return new Promise(async res => {
+        console.log()
         const dir               =  './media/'
-        const videoLink         =   path.basename(path.basename(data.video, path.extname(data.video)));
-        const shortVideoLink    =  'shortVideo';
+        const videoLink         =   path.basename(data.video.replace(/^.*\\/, ""), path.extname(data.video.replace(/^.*\\/, "")));
+        const shortVideoLink    =   data.newVideo;
         const parts             =   data.parts;
         const shortTime         =   data.shortTime; 
 
@@ -64,7 +56,7 @@ function createWindow(){
     win = new BrowserWindow({
         width: 400,
         height: 700,
-        icon: __dirname + '/views/img/icon.ico',
+        icon: path.join(__dirname, 'views', 'img', 'icon.ico'),
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,

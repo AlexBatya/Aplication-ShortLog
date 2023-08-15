@@ -27,6 +27,7 @@
                     <input class = 'video' required name = 'video' type="file">
                     <input required name = 'parts' class = 'parts input' placeholder="Колличество разбиений" type="text">
                     <input required name = 'shortTime'  class = 'shortTime input' placeholder="Время одного кадра в секундах" type="text">
+                    <input required name = 'newVideo'  class = 'newVideo input' placeholder="Назовите короткое видео" type="text">
                     <button class = 'btm'>Отправить</button>
                     
                 </form>
@@ -42,7 +43,8 @@
             const data = {
                 video: document.querySelector('.video').value,
                 parts: document.querySelector('.parts').value,
-                shortTime: document.querySelector('.shortTime').value 
+                shortTime: document.querySelector('.shortTime').value, 
+                newVideo: document.querySelector('.newVideo').value 
             }
             ipcRenderer.send('item:add', data);
             form.insertAdjacentHTML('beforeend', `<img class = 'loding' src = './views/img/loding.gif' /></div>`)
